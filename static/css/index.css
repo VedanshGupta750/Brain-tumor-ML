@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f 0%, #3b3b5b 50%, #5e5e8d 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e0e0f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 4px 15px rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #00ddeb 0%, #00b4d8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 180, 216, 0.4);
+    animation: slideIn 1s ease-in-out;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #d0d0e8;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.file-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e0e0f0;
+    margin-bottom: 10px;
+    display: block;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease-in-out;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(0, 180, 216, 0.3);
+    border-radius: 10px;
+    color: #e0e0f0;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+input[type="file"]:hover,
+input[type="file"]:focus {
+    border-color: #00ddeb;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background: linear-gradient(135deg, #00ddeb 0%, #00b4d8 100%);
+    transform: scale(1.05);
+}
+
+.upload-btn {
+    padding: 14px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00ddeb 0%, #0077b6 100%);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.upload-btn:hover {
+    background: linear-gradient(135deg, #0077b6 0%, #00ddeb 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+}
+
+.upload-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.upload-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.upload-btn:focus {
+    outline: 2px solid #00ddeb;
+    outline-offset: 2px;
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+    h1 {
+        font-size: 2.4rem;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+    input[type="file"] {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .upload-btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    input[type="file"] {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    .upload-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}

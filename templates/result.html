@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/css/result.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h2 class="title">Segmented Image</h2>
+            <div class="result-content">
+                <div class="image-section">
+                    <img src="{{ url_for('get_result_image', filename=image_file) }}" alt="Segmented Image">
+                </div>
+                <div class="details-section">
+                    <h3>Detections:</h3>
+                    <ul class="detection-list">
+                        {% if detections and detections[0].class != "No brain tumor detected" %}
+                            {% for detection in detections %}
+                                <li>{{ detection.class }} - Confidence: {{ detection.confidence }}%</li>
+                            {% endfor %}
+                        {% else %}
+                            <li>No brain tumor detected</li>
+                        {% endif %}
+                    </ul>
+                    
+                    <a href="/" class="back-link">Upload Another Image</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
